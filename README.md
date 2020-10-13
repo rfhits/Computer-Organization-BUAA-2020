@@ -1,7 +1,7 @@
 # Computer-Organization-BUAA-2020
 
+关键词：北航6系 CO BUAA CO 2020  
 Email: wysj0117@gmail.com  
-北航6系CO课 BUAA CO
 
 ## 获取帮助
 
