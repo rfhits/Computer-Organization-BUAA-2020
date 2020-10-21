@@ -2,10 +2,12 @@
 
 ## 其他人的概览
 
+[2019-BUAA-Wander的概览](https://www.cnblogs.com/BUAA-Wander/p/11664403.html)  
+[2018-tongtao的概览](https://tongtao.me/2020/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/)  
 [2018-aptx1231的概览](https://github.com/aptx1231/BUAA_CO/blob/master/README.md)  
 [2018-wancong3的概览](https://blog.csdn.net/zhangwancongcsdn/article/details/83894538)  
-[2019-BUAA-Wander的概览](https://www.cnblogs.com/BUAA-Wander/p/11664403.html)
-[2018-tongtao的概览](https://tongtao.me/2020/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/)
+
+
 
 ## Pre-study
 
@@ -134,3 +136,5 @@ To synthesis and load P7 on a FPGA.(2018)
  1. 感谢wzk、Wander等学长对题目的回忆
 
  2. 在此谢谢我的助教ssh、fdh以及所有助教，你们辛苦了
+
+ 3. 感谢所有在互联网上分享经验的贡献者，sharing is caring.
