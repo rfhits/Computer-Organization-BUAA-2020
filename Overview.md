@@ -1,6 +1,14 @@
 # Overview
 
+## 其他人的概览
+
+[2018-aptx1231的概览](https://github.com/aptx1231/BUAA_CO/blob/master/README.md)  
+[2018-wancong3的概览](https://blog.csdn.net/zhangwancongcsdn/article/details/83894538)  
+[2019-BUAA-Wander的概览](https://www.cnblogs.com/BUAA-Wander/p/11664403.html)
+
 ## Pre-study
+
+### 能力要求
 
 **Learning basics of the circuit, the Verilog HDL, and the MIPS assembly Language**  
 from FutureXiang in 2018
@@ -19,6 +27,8 @@ from FutrureXiang in 2018
 
 ### P0 课下
 
+#### 2020年
+
 CRC  
 GRF  
 Navigation  
@@ -26,6 +36,8 @@ Regex
 [2020-P0课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/tree/main/2-P0/%E8%AF%BE%E4%B8%8B)
 
 ### P0 课上
+
+#### 2019年
 
 有限状态机（售货机）  
 逻辑左移  
@@ -45,6 +57,8 @@ from FutureXiang in 2018
 ### P1 课下
 
 ### P1 课上
+
+#### 2019年
 
 不用“＞”、“＜”比较四位数大小  
 有限状态机（售货机）  
