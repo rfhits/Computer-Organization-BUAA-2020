@@ -3,16 +3,35 @@
 ## Pre-study
 
 Learning basics of the circuit, the Verilog HDL, and the MIPS assembly Language  
+from FutureXiang in 2018
 
 ## Pre
 
 ## P0
 
-P0、P1要重点掌握Moore型和Mealy型状态机的搭法，同步复位和异步复位的区别要重点区分开  
-Simple circuits and the Finite-State Machine in Logisim.(2018)  
+### 能力要求
+
+**P0、P1要重点掌握Moore型和Mealy型状态机的搭法，同步复位和异步复位的区别要重点区分开**  
+from WZK in 2019  
+
+**Simple circuits and the Finite-State Machine in Logisim.**  
+from FutrureXiang in 2018
+
+
+### 课下
+
+CRC  
+GRF  
+Navigation  
+Regex  
+[2020-P0课下解析]()
+
+### 课上
+
 有限状态机（售货机）  
 逻辑左移  
 浮点数  
+[2019-P0课上解析](https://www.cnblogs.com/BUAA-Wander/p/11664403.html)
 
 ## P1
 
