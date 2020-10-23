@@ -7,8 +7,6 @@
 [2018-aptx1231的概览](https://github.com/aptx1231/BUAA_CO/blob/master/README.md)  
 [2018-wancong3的概览](https://blog.csdn.net/zhangwancongcsdn/article/details/83894538)  
 
-
-
 ## Pre-study
 
 ### 能力要求
@@ -37,6 +35,14 @@ GRF
 Navigation  
 Regex  
 [2020-P0课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/tree/main/2-P0/%E8%AF%BE%E4%B8%8B)
+
+### 2019年
+
+CRC  
+4-bit ALU  
+GRF  
+Regex  
+[2019-P0课下解析](https://www.cnblogs.com/BUAA-Wander/p/11664403.html)
 
 ### P0 课上
 
