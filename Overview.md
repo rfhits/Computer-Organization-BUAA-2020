@@ -51,8 +51,8 @@ Regex
 有限状态机-摆渡车（必做）  
 逻辑电路-分数计算（必做）  
 md5加密（人上人选做）  
-forgotten  
-[2020-P0课上解析]()
+forgotten（人上人选做）  
+[2020-P0课上解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/2-P0/%E8%AF%BE%E4%B8%8A/%E5%9B%9E%E5%BF%86.md)
 
 #### 2019年
 
