@@ -70,7 +70,7 @@ always@(posedge clk or posedge clr) begin
 						err <= 1;
 					end
 				end
-				s2 : begin
+				`s2 : begin
 					if((in >= "0")&&(in <= "9"))begin
 						state <= `s1;
 					end
@@ -89,10 +89,12 @@ always@(posedge clk or posedge clr) begin
 				end
 			endcase
 		end
+		else begin
+		end
 	end	
 end
 
-assign out =	(error == 1)? 0:
+assign out =	(err == 1)? 0:
 					(state == `s1)? 1:
 					0;
 endmodule
