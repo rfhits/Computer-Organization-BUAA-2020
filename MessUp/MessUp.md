@@ -11,6 +11,10 @@
 ![const](/MessUp/Verilog-1-literal.jpg)  
 亮点见[位数]
 
+### reg在端口前
+
+![reg_before_ports](/MessUp/Verilog-4-reg_before_ports.jpg)
+
 ### 端口定义
 
 在定义时，常常把忘了input改成output  
