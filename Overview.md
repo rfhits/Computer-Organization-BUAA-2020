@@ -40,7 +40,7 @@ from FutrureXiang in 2018
 
 ### P0 课下
 
-#### 2020年
+#### 2020
 
 CRC  
 GRF  
@@ -48,7 +48,7 @@ Navigation
 Regex  
 [2020-P0课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/tree/main/2-P0/%E8%AF%BE%E4%B8%8B)
 
-#### 2019年
+#### 2019
 
 CRC  
 4-bit ALU  
@@ -66,7 +66,7 @@ md5加密（人上人选做）
 forgotten（人上人选做）  
 [2020-P0课上解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/2-P0/%E8%AF%BE%E4%B8%8A/%E5%9B%9E%E5%BF%86.md)
 
-#### 2019年
+#### 2019
 
 有限状态机-售货机（必做）  
 逻辑电路-逻辑左移（必做）  
@@ -85,13 +85,29 @@ from FutureXiang in 2018
 
 ### P1 课下
 
+#### 2020
+
+splitter  
+alu  
+ext  
+gray_code
+string，表达式处理  
+BlockChecker，相当于左右括号匹配检查  
+
 ### P1 课上
 
-#### 2019年
+#### 2020
 
-不用“＞”、“＜”比较四位数大小  
-有限状态机（售货机）  
-有限状态机  
+逻辑电路-投票记分（三选二）  
+有限状态机-炒东西（三选二）  
+有限状态机-日期合法性检查（三选二）  
+有限状态机-用户名合法性检查（人上人选做）
+
+#### 2019
+
+逻辑电路-不用“＞”、“＜”比较四位数大小（三选二）  
+有限状态机-售货机（三选二）  
+有限状态机-forgotten（三选二）
 
 ## P2
 
