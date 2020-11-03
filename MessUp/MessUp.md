@@ -27,3 +27,14 @@
 ![sra_error](/MessUp/Verilog-3-ternary_operator_sra.jpg)  
 至于为什么多套一个 $signed() ，就能得到符合预期的结果，，未解之谜。  
 若要求稳，always(*)，避免三目运算符。  
+
+## MIPS
+
+### load address
+
+都是对寄存器里面存值，但是  
+load immediate  
+load address  
+对load的东西要区分开
+![load address](/MessUp/MIPS-1-li_and_la.jpg)
+
