@@ -46,6 +46,7 @@ CRC
 GRF  
 Navigation  
 Regex  
+float（附加题）  
 [2020-P0课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/tree/main/2-P0/%E8%AF%BE%E4%B8%8B)
 
 #### 2019
@@ -120,11 +121,26 @@ from FutureXiang in 2018
 
 ### P2 课下
 
+矩阵乘法  
+回文串判断  
+矩阵卷积  
+全排列C代码翻译  
+01迷宫（附加题）  
+高精度阶乘（附加题）
+
 ### P2 课上
 
-斐波那契（可循环代替递归）  
-汉诺塔（提供C代码，翻译即可）  
-forgotten  
+#### 2020
+
+素数判断（三选二）  
+约瑟夫环（三选二）  
+快速排序C代码翻译（三选二）
+
+#### 2019
+
+斐波那契（三选二）  
+汉诺塔C代码翻译（三选二）  
+高精度乘法（三选二）
 
 ## P3
 

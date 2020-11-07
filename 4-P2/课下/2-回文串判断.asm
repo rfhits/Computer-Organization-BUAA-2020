@@ -1,5 +1,3 @@
-
-
 .data
 	ary:		.space	160
 	

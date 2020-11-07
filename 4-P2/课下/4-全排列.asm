@@ -85,9 +85,3 @@ if_0_end:
 	j		Loop
 Loop_end:
 	jr		$ra
-	
-	
-	
-	
-	
-	
