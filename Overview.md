@@ -152,11 +152,22 @@ from FutureXiang in 2018
 **Single Cycle CPU in Logisim**  
 from FutureXiang in 2018  
 
+### P3 课下
+
+用Logisim实现单周期32CPU，支持MIPS指令集中的  
+{addu, subu, lw, sw, beq, lui, ori, nop}
+指令
+
 ### P3 课上
 
-jal  
-clo（用bitfinder）  
-forgotten（要交换DM两个接口位置）  
+#### 2019
+
+实现jal（三选二）  
+实现clo（三选二）  
+实现lbu（三选二）  
+
+简短提示：clo要用Bit Finder，lbu要交换接口位置。  
+可以参照MARS中help中的hit
 
 ## P4
 

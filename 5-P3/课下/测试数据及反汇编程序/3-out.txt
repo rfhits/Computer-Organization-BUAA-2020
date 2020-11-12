@@ -10,5 +10,3 @@ Beq:
 	lui		$t7, 100
 	beq		$t5, $t1, Beq
 	beq		$t6, $t5, Beq
-	
-	
