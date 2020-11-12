@@ -1,0 +1,30 @@
+ori $gp, $0, 0x0
+ori $sp, $0, 0x0
+ori $0, $0, 0x80f8
+ori $t6, $s7, 0x367
+ori $s3, $t4, 0x769c
+ori $sp, $a2, 0xa539
+ori $a1, $v1, 0xc5dc
+ori $fp, $a1, 0xff1
+ori $s2, $v1, 0xaf1d
+ori $s6, $t2, 0x6602
+ori $fp, $t7, 0x72a7
+ori $s7, $at, 0xff23
+ori $t9, $sp, 0x649e
+ori $s0, $s4, 0xbf9b
+ori $fp, $ra, 0x4e0c
+ori $s1, $t8, 0xf49d
+lui $s1, 0x3bfe
+lui $a1, 0x7433
+lui $v1, 0xc451
+lui $a0, 0xc431
+lui $gp, 0x24d9
+lui $k1, 0xf0da
+lui $t4, 0xcc68
+lui $t2, 0x118d
+lui $s0, 0x21ea
+lui $0, 0x4d3
+lui $s6, 0x115b
+lui $t8, 0x4f06
+lui $s2, 0x15de
+beq $0, $0, label_1
