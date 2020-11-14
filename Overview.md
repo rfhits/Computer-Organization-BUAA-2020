@@ -160,11 +160,17 @@ from FutureXiang in 2018
 
 ### P3 课上
 
+#### 2020
+
+添加balr（三选二）  
+添加wsbh（三选二）  
+forgotten（三选二）  
+
 #### 2019
 
-实现jal（三选二）  
-实现clo（三选二）  
-实现lbu（三选二）  
+添加jal（三选二）  
+添加clo（三选二）  
+添加lbu（三选二）  
 
 简短提示：clo要用Bit Finder，lbu要交换接口位置。  
 可以参照MARS中help中的hit
