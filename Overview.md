@@ -65,7 +65,7 @@ Regex
 逻辑电路-分数计算（必做）  
 md5加密（人上人选做）  
 forgotten（人上人选做）  
-[2020-P0课上解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/2-P0/%E8%AF%BE%E4%B8%8A/%E5%9B%9E%E5%BF%86.md)
+[2020-P0课上回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/2-P0/%E8%AF%BE%E4%B8%8A/%E5%9B%9E%E5%BF%86.md)
 
 #### 2019
 
@@ -94,6 +94,7 @@ ext
 gray_code
 string，表达式处理  
 BlockChecker，相当于左右括号匹配检查  
+[2020-P1课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/3-P1/%E8%AF%BE%E4%B8%8B/P1%E8%AF%BE%E4%B8%8B%E8%A7%A3%E6%9E%90.md)
 
 ### P1 课上
 
@@ -102,13 +103,15 @@ BlockChecker，相当于左右括号匹配检查
 逻辑电路-投票记分（三选二）  
 有限状态机-炒东西（三选二）  
 有限状态机-日期合法性检查（三选二）  
-有限状态机-用户名合法性检查（人上人选做）
+有限状态机-用户名合法性检查（人上人选做）  
+[2020-P1课上回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/3-P1/%E8%AF%BE%E4%B8%8A/%E5%9B%9E%E5%BF%86.md)
 
 #### 2019
 
 逻辑电路-不用“＞”、“＜”比较四位数大小（三选二）  
 有限状态机-售货机（三选二）  
-有限状态机-forgotten（三选二）
+有限状态机-forgotten（三选二）  
+[2019-P1课上解析](https://www.cnblogs.com/BUAA-Wander/p/11701090.html)
 
 ## P2
 
@@ -128,7 +131,8 @@ from FutureXiang in 2018
 矩阵卷积  
 全排列C代码翻译  
 01迷宫（附加题）  
-高精度阶乘（附加题）
+高精度阶乘（附加题）  
+[2020-P2课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/4-P2/%E8%AF%BE%E4%B8%8B/P2%E8%AF%BE%E4%B8%8B%E8%A7%A3%E6%9E%90.md)
 
 ### P2 课上
 
@@ -137,13 +141,15 @@ from FutureXiang in 2018
 素数判断（三选二）  
 约瑟夫环（三选二）  
 快速排序C代码翻译（三选二）  
-帮助小明de回文串判断的bug（附加题）
+帮助小明de回文串判断的bug（附加题）  
+[2020-P2课上回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/4-P2/%E8%AF%BE%E4%B8%8A/P2%E8%AF%BE%E4%B8%8A%E5%9B%9E%E5%BF%86.md)
 
 #### 2019
 
 斐波那契（三选二）  
 汉诺塔C代码翻译（三选二）  
-高精度乘法（三选二）
+高精度乘法（三选二）  
+[2019-P2课上解析](https://www.cnblogs.com/BUAA-Wander/p/11746238.html)
 
 ## P3
 
@@ -156,7 +162,8 @@ from FutureXiang in 2018
 
 用Logisim实现单周期32CPU，支持MIPS指令集中的  
 {addu, subu, lw, sw, beq, lui, ori, nop}
-指令
+指令  
+[2020-P3课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/5-P3/%E8%AF%BE%E4%B8%8B/%E8%A7%A3%E6%9E%90.md)
 
 ### P3 课上
 
@@ -165,12 +172,14 @@ from FutureXiang in 2018
 添加balr（三选二）  
 添加wsbh（三选二）  
 forgotten（三选二）  
+[2020-P3课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/5-P3/%E8%AF%BE%E4%B8%8A/P3%E8%AF%BE%E4%B8%8A%E6%B5%8B%E8%AF%95%E5%9B%9E%E5%BF%86.md)
 
 #### 2019
 
 添加jal（三选二）  
 添加clo（三选二）  
 添加lbu（三选二）  
+[2019-P3课上测评回忆](https://www.cnblogs.com/BUAA-Wander/p/11790154.html)
 
 简短提示：clo要用Bit Finder，lbu要交换接口位置。  
 可以参照MARS中help中的hit
