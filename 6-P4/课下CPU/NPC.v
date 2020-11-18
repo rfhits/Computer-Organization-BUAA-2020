@@ -43,6 +43,4 @@ module NPC(
 			NPC = PC + 4;
 		end
 	end
-
-
 endmodule
