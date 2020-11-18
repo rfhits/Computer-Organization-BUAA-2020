@@ -28,6 +28,15 @@
 至于为什么多套一个 $signed() ，就能得到符合预期的结果，，未解之谜。  
 若要求稳，always(*)，避免三目运算符。  
 
+### case后面不要加上冒号
+
+![no_colon_behind_case](/MessUp/Verilog-5-no_colon_behind_case.jpg)  
+
+### 常数拼接线位后用大括号并起来
+
+![brace_the_const](/MessUp/Verilog-6-brace_the_const.jpg)  
+这个是观察学长代码发现的。
+
 ## MIPS
 
 ### load address
@@ -37,4 +46,3 @@ load immediate
 load address  
 对load的东西要区分开
 ![load address](/MessUp/MIPS-1-li_and_la.jpg)
-
