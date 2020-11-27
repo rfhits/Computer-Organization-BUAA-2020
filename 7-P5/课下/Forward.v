@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Forward(
 	// Decode
-	// ID/EX knows which Decode to use
+	// IF/ID knows which Decode to use
     input [4:0] A1D,
     input [4:0] A2D,
 	
@@ -58,7 +58,7 @@ module Forward(
     );
 	
 	// 'Cause the internal Fwd in GRF, so there are only two fwd
-	assign FwdD1 =	(A1D == A3E && A3E != 0)? WDE :
+	assign FwdD1 =	(A1D == A3E && A3E != 0)? WDE :		// 
 					(A1D == A3M && A3M != 0)? WDM :
 					RD1D;
 	assign FwdD2 =	(A2D == A3E && A3E != 0)? WDE :
