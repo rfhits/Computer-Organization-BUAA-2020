@@ -96,6 +96,7 @@ module datapath(
 	.PC(PC)
     );
 	
+	// the mux write value choose
 	Mux_4_32 MuxRegWrite (
     .in0(res), 
     .in1(MemRead), 
@@ -105,7 +106,7 @@ module datapath(
     .out(RegWrite)
     );
 
-	
+	// the grf write addr choose
 	MuxRegAddr MuxRegAddr (
     .rd(instr[15:11]), 
     .rt(instr[20:16]), 
@@ -115,7 +116,9 @@ module datapath(
 	
 ///////////////////////////////
 //	ALU Part
-	Mux_2_32 Alu (
+
+/// ALU oprend choose
+	Mux_2_32 MuxAluB (
     .in0(RegRead2), 
     .in1(imm32), 
     .sel(AluSrc), 

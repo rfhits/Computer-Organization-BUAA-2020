@@ -57,21 +57,38 @@ module control(
 	assign WeDm = sw;
 	
 	// RegDst
-	assign RegDst[0] = ori|lw|lui;
-	assign RegDst[1] = jal;
+	// RegWriteAddr == rd? rt? 31?
+	// assign RegDst[0] = ori|lw|lui;
+	// assign RegDst[1] = jal;
+	
+	assign RegDst = (ori|lw|lui) ? 2'b01 :
+					(jal) ? 2'b10 :
+					2'b00;
 	
 	// WhichtoReg
-	assign WhichtoReg[0] = lw;
-	assign WhichtoReg[1] = jal;
+	// choose from PC4 / MemRead / res
+	// assign WhichtoReg[0] = lw;
+	// assign WhichtoReg[1] = jal;
+	
+	assign WhichtoReg =	lw	? 2'b01 :
+						jal	? 2'b10 :
+						2'b00;
 	
 	// AluSrc
 	assign AluSrc = ori|lw|sw|lui;
 	
 	// AluOp
 	
-	assign AluOp[0] = subu|ori;
-	assign AluOp[1] = ori;
-	assign AluOp[2] = lui;
+	// assign AluOp[0] = subu|ori;
+	// assign AluOp[1] = ori;
+	// assign AluOp[2] = lui;
+	
+	assign AluOp =	addu ?	3'b000 :
+					subu ?	3'b001 :
+					// and is 010, "and" is a key word
+					ori ?	3'b011 :
+					lui ?	3'b100 :
+					0;
 	
 	// sign
 	assign sign = lw|sw|beq;
