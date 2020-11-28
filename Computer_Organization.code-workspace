@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.editorAssociations": [{
+			"viewType": "default",
+			"filenamePattern": "*.md"
+		}]
+	}
+}
