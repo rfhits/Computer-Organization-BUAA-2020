@@ -191,9 +191,19 @@ forgotten（三选二）
 **Single Cycle CPU in Verilog, supporting 10+ MIPS instructions.**  
 From FutureXiang in 2018  
 
+### P4课上
+
+#### 2020
+
+bsoal  
+xor  
+swrr（DM写入时，输出要求“字对齐”）
+
+#### 2019
+
 jalr  
 rotrv  
-lwl  
+lwl
 
 ## P5
 
