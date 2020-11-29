@@ -30,63 +30,58 @@ module control(
     output sign,
 	output branch,
     output JType,
-    output jr
+    output JReg
     );
 	
 	wire [5:0] op, func;
 	assign op = instr[31:26];
 	assign func = instr[5:0];
-	wire addu,subu,ori,lw,sw,beq,lui,jal,nop;
+	wire addu, subu, ori, lw, sw, beq, lui, jal, nop, orw;
 	
 	
 
 	assign addu = (op == 6'b000000)&(func == 6'b100001);
 	assign subu = (op == 6'b000000)&(func == 6'b100011);
+	
+	assign lui = (op == 6'b001111);
 	assign ori = (op == 6'b001101);
+	
 	assign lw = (op == 6'b100011);
 	assign sw = (op == 6'b101011);
 	assign beq = (op == 6'b000100);
-	assign lui = (op == 6'b001111);
+	
 	assign jal = (op == 6'b000011);
 	assign j = (op == 6'h000010);
+	
 	assign jr = (op == 6'b000000)&(func == 6'b001000);
-	assign nop= (op==6'b000000)&(func==6'b000000);
+	assign jalr = (op == 6'b000000)&(func == 6'b001001);
+	
+	assign orw = (op == 6'b000000) & (func == 6'b100101);	// "or" is a key word
+	assign nop= (op == 6'b000000)&(func == 6'b000000);
 	
 	// WE
-	assign WeGrf = addu|subu|ori|lw|lui|jal;
+	assign WeGrf = addu || subu|| ori || orw || lw || lui || jal || jalr;
 	assign WeDm = sw;
 	
-	// RegDst
-	// RegWriteAddr == rd? rt? 31?
-	// assign RegDst[0] = ori|lw|lui;
-	// assign RegDst[1] = jal;
-	
-	assign RegDst = (ori|lw|lui) ? 2'b01 :
-					(jal) ? 2'b10 :
-					2'b00;
+	assign RegDst = (jal || jalr) ? 2'b10 :			// $31
+					(ori|| lw || lui) ? 2'b01 :	// rt
+					2'b00;					// rd
 	
 	// WhichtoReg
 	// choose from PC4 / MemRead / res
-	// assign WhichtoReg[0] = lw;
-	// assign WhichtoReg[1] = jal;
-	
-	assign WhichtoReg =	lw	? 2'b01 :
-						jal	? 2'b10 :
-						2'b00;
+	assign WhichtoReg =	jal	? 2'b10 :	// PC4
+						lw	? 2'b01 :	// Memread
+						2'b00;			// res
 	
 	// AluSrc
 	assign AluSrc = ori|lw|sw|lui;
 	
 	// AluOp
 	
-	// assign AluOp[0] = subu|ori;
-	// assign AluOp[1] = ori;
-	// assign AluOp[2] = lui;
-	
 	assign AluOp =	addu ?	3'b000 :
 					subu ?	3'b001 :
 					// and is 010, "and" is a key word
-					ori ?	3'b011 :
+					ori|orw?	3'b011 :
 					lui ?	3'b100 :
 					0;
 	
@@ -100,8 +95,8 @@ module control(
 	// JType
 	assign JType = j|jal;
 	
-	// jr already assign
-	// assign jr = jr;
+	// JReg
+	assign JReg = jr || jalr;
 
 
 endmodule

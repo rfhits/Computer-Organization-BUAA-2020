@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_2_32(		// 2 ports, 32 data bits
+module Mux_2_32(		// 2 ports in, 32-bits
 	input [31:0] in0,
 	input [31:0] in1,
 	input sel,
@@ -27,17 +27,19 @@ module Mux_2_32(		// 2 ports, 32 data bits
 	assign out = (sel == 0)? in0:in1;
 endmodule
 
-module MuxRegAddr(		// only for GrfAddr
-	input [4:0] rd,
-	input [4:0] rt,
-	input [1:0] RegDst,
-	output [4:0] RegAddr
+module Mux_4_5(
+	input [4:0] in0,
+	input [4:0] in1,
+	input [4:0] in2,
+	input [4:0] in3,
+	input [1:0] sel,
+	output [4:0] out
 	);
-	assign RegAddr =	(RegDst == 2'b00)? rd:
-						(RegDst == 2'b01)? rt:
-						(RegDst == 2'b10)? 5'h1f:
-						0;
-endmodule
+	assign out =	(sel == 2'b00)? in0:
+					(sel == 2'b01)? in1:
+					(sel == 2'b10)? in2:
+					in3;
+endmodule 
 
 module Mux_4_32(
 	input [31:0] in0,

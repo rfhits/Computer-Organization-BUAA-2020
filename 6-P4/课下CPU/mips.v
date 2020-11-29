@@ -24,7 +24,7 @@ module mips(
     );
 	
 	
-	wire WeGrf, WeDm, AluSrc, sign, branch, JType, jr, eq;
+	wire WeGrf, WeDm, AluSrc, sign, branch, JType, JReg, eq;
 	wire [1:0] RegDst, WhichtoReg;
 	wire [2:0] AluOp;
 	wire [31:0] instr;
@@ -41,13 +41,16 @@ module mips(
     .sign(sign), 
     .branch(branch), 
     .JType(JType), 
-    .jr(jr), 
+    .JReg(JReg), 
     .eq(eq), 
+	
     .instr(instr)
     );
+	
 	control ctrl (
     .eq(eq), 
     .instr(instr), 
+	
     .WeGrf(WeGrf), 
     .WeDm(WeDm), 
     .RegDst(RegDst), 
@@ -57,7 +60,7 @@ module mips(
     .sign(sign), 
     .branch(branch), 
     .JType(JType), 
-    .jr(jr)
+    .JReg(JReg)
     );
 	
 

@@ -30,10 +30,28 @@ module datapath(
     input sign,
     input branch,
     input JType,
-    input jr,
+    input JReg,
 	output eq,
-	output [31:0] instr		// exist
+	output [31:0] instr,		// exist
+	
+	output odd      // for failed P4-test :(
+	
     );
+	reg [31:0] num;
+	initial begin
+		num = 0;
+	end
+	integer i;
+	always@(*) begin
+		num = 0;
+		for (i = 0; i < 32; i = i + 1) begin
+			if(RegRead1[i] == 1) begin
+				num = num + 1;
+			end
+		end
+	end
+	assign odd = num[0];
+
 	
 	// NPC Wire
 	wire [31:0] NPC, PC4;
@@ -60,7 +78,7 @@ module datapath(
 	NPC npc (
     .branch(branch), 
     .JType(JType), 
-    .jr(jr), 
+    .JReg(JReg), 
     .PC(PC), 
     .RegJump(RegRead1), 
     .imm26(instr[25:0]), 
@@ -107,11 +125,15 @@ module datapath(
     );
 
 	// the grf write addr choose
-	MuxRegAddr MuxRegAddr (
-    .rd(instr[15:11]), 
-    .rt(instr[20:16]), 
-    .RegDst(RegDst), 
-    .RegAddr(RegAddr)
+	
+	
+	Mux_4_5 MuxRegAddr (	// 4 inputs 5-bits output
+    .in0(instr[15:11]), 
+    .in1(instr[20:16]),
+	.in2(5'd31),
+	.in3(0),
+    .sel(RegDst), 
+    .out(RegAddr)
     );
 	
 ///////////////////////////////

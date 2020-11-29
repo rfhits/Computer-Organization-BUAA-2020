@@ -21,7 +21,7 @@
 module NPC(
     input branch,
     input JType,		// j and jal is the same
-    input jr,
+    input JReg,
     input [31:0] PC,
     input [31:0] RegJump,
     input [25:0] imm26,
@@ -36,7 +36,7 @@ module NPC(
 		else if (JType) begin
 			NPC = {PC[31:28], imm26, 2'b00};
 		end
-		else if (jr) begin
+		else if (JReg) begin
 			NPC = RegJump;
 		end
 		else begin
