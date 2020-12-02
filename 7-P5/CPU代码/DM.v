@@ -26,8 +26,10 @@ module DM(
     input clk,
     input reset,
     input WE,
+	
 	input [1:0] width,
 	input LoadSign,
+	
     input [31:0] addr,
     input [31:0] WD,
     output reg [31:0] RD,
@@ -38,12 +40,11 @@ module DM(
 	reg [31:0] DM[1023:0];
 	integer i;
 	
-	initial begin
+	initial begin 
 		for (i = 0; i < 1024; i = i + 1)
 			DM[i] = 0;
 	end
 	
-	assign RD = DM[addr[11:2]];
 	
 	always@(posedge clk) begin
 		if(reset == 1) begin
@@ -54,7 +55,7 @@ module DM(
 			case(width)
 				`WORD : begin
 					DM[addr[11:2]] = WD;
-					$display("@%h: *%h <= %h", PC, addr, WD);		// the pre-test requires
+					$display("%d@%h: *%h <= %h", $time, PC, addr, WD);		// the pre-test requires
 		
 				end
 				`HALF : begin
@@ -62,6 +63,7 @@ module DM(
 						0 : DM[addr[11:2]][15:0] = WD[15:0];
 						1 : DM[addr[11:2]][31:16] = WD[15:0];
 					endcase
+					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[11:2]]);		// the pre-test requires
 				end
 				`BYTE : begin
 					case(addr[1:0])
@@ -70,6 +72,7 @@ module DM(
 						2 : DM[addr[11:2]][23:16] = WD[7:0];
 						3 : DM[addr[11:2]][31:24] = WD[7:0];
 					endcase
+					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[11:2]]);		// the pre-test requires
 				end
 			endcase
 		end

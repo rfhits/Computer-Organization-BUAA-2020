@@ -41,7 +41,7 @@ module IDEX(
     output reg [31:0] RD2E,
     output reg [31:0] imm32E,
 	
-    output reg [41:0] A3E,
+    output reg [4:0] A3E,
     output reg [31:0] WDE
     );
 	
@@ -60,7 +60,7 @@ module IDEX(
 			InstrE <= InstrD;
 			RD1E <= RD1D;
 			RD2E <= RD2D;
-			imm32E <= Imm32D;
+			imm32E <= imm32D;
 			A3E <= A3D;
 			WDE <= WDD;
 		end

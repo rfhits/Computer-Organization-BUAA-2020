@@ -30,19 +30,27 @@ module Execute(
     input [31:0] FwdE2,
 	
     output [31:0] WDEM,
-    output [31:0] RD2EM
+    output [31:0] RD2EM,
+	
+	// stall sigals
+	output E1Use,
+	output E2Use
     );
-	wire ALUOp;
+	wire [3:0] ALUOp;
 	wire ALUASel, ALUBSel;
 	wire[31:0] ALUA, ALUB, res;
 	wire [1:0] WDSelE;
 	
 	Control CtrlE (
     .instr(InstrE), 
-    .ALUop(ALUOp), 
+    .ALUOp(ALUOp), 
     .ALUASel(ALUASel), 
     .ALUBSel(ALUBSel), 
-    .WDSelE(WDSelE)
+    .WDSelE(WDSelE),
+	
+	// Stall Signals 
+	.E1Use(E1Use),
+	.E2Use(E2Use)
     );
 	
 	assign ALUA = (ALUASel == 0)? FwdE1 : {27'b0, InstrE[10:6]};

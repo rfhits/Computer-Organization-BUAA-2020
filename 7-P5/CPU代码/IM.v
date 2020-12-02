@@ -24,7 +24,7 @@ module IM(
     input [31:0] PC,
     output [31:0] instr
     );
-	reg[31:0] ImMem[ `IMSIZE -1:0];
+	reg[31:0] ImMem[`IMSIZE -1:0];
 	integer i;
 	initial begin
 		for (i = 0; i < `IMSIZE; i = i + 1) begin

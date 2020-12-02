@@ -22,7 +22,7 @@ use the imm
 
 ### ori
 
-GRF[rt] <= GRF[rs] or ZeroExt(imm16)
+GRF[rt] <= GRF[rs] | ZeroExt(imm16)
 
 ### lui
 

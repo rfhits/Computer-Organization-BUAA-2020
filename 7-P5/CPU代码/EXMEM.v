@@ -21,7 +21,6 @@
 module EXMEM(
     input clk,
 	input reset,
-    input en,
     input flush,
 	
     input [31:0] PCE,
@@ -47,7 +46,7 @@ module EXMEM(
 			WDM = 0;
 			RD2M = 0;
 		end
-		else if(en) begin
+		else begin
 			PCM = PCE;
 			InstrM = InstrE;
 			A3M = A3E;

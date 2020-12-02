@@ -19,16 +19,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 // do not include the macros.v !!!
-`define ADDU	3'b000
-`define SUBU	3'b001
-`define AND		3'b010
-`define	OR		3'b011
-`define	LUI		3'b100
+`define ADDU	4'b0000
+`define SUBU	4'b0001
+`define AND		4'b0010
+`define	OR		4'b0011
+`define	LUI		4'b0100
 
 module ALU(
     input [31:0] A,
     input [31:0] B,
-    input [2:0] ALUOp,
+    input [3:0] ALUOp,
     output reg [31:0] res
     );
 	always@(*) begin

@@ -25,11 +25,11 @@ module Fetch(
     input [31:0] NPC,
 	
 	
-    output [31:0] InstrFD,
-    output [31:0] PCFD
+    output [31:0] InstrF,
+    output [31:0] PCF
     );
 	
-	wire PC;
+	wire[31:0] PC;
 	
 	PC pc (
     .clk(clk), 
@@ -41,12 +41,14 @@ module Fetch(
 	
 	IM im(
     .PC(PC), 
-    .instr(instr)
+    .instr(InstrF)
     );
 	
-	assign PCFD = PC;
-	assign InstrFD = instr;
-
-
-
+	assign PCF = PC;
+	
+DASM instance_name (
+    .pc(PC), 
+    .instr(InstrF), 
+    .reg_name(0)
+    );
 endmodule

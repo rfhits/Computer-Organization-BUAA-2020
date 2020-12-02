@@ -39,13 +39,22 @@ module Control(
     output [3:0] ALUOp,
 	output ALUASel,
 	output ALUBSel,
-	output [1:0] WDSelE,
+	output [1:0] WDSelE,	// res or WriteDate generate on D-Stage
 	
 	// Memory-Stage
 	output WEMem,
-	output width,
+	output [1:0] width,
 	output LoadSign,
-	output WDSelM
+	output WDSelM,
+	
+	// stall signals
+	output D1Use,
+	output D2Use,
+	output E1Use,
+	output E2Use,
+	output M2Use
+	
+	
     );
 	
 	wire [5:0] op, funct, rt;
@@ -71,14 +80,17 @@ module Control(
 	assign jalr = (op == `R)&(funct == `JALR);
 	
 	assign	nop= (op == `R)&(funct == 0),
+			add = (op == `R) && (funct == `ADD),
+			sub = (op == `R) && (funct == `SUB),
+			
 			lb = (op == `LB),
 			lbu = (op == `LBU),
 			lh = (op == `LH),
 			lhu = (op == `LHU),
 			sb = (op == `SB),
 			sh = (op == `SH),
-			add = (op == `R) && (funct == `ADD),
-			sub = (op == `R) && (funct == `SUB),
+			
+			
 			mult = (op == `R) && (funct == `MULT),
 			multu = (op == `R) && (funct == `MULTU),
 			div = (op == `R) && (funct == `DIV),
@@ -121,11 +133,12 @@ module Control(
 	// branch
 	assign branch =  beq & eq;
 	// JType
-	assign JType = j|jal;
+	assign JType = j || jal;
 	// JReg
-	assign JReg = jr | jalr;
+	assign JReg = jr || jalr;
 	
 	// WDSelD
+	// if link, set 1
 	assign WDSelD = jal | jalr;
 	
 	// A3DE
@@ -138,7 +151,8 @@ module Control(
 //////////// Execute begin ///////////
 
 	// ALUOp
-	assign ALUOp =	(subu | sub)?	4'b0001 :
+	assign ALUOp =	(addu || add)?  4'b0000 :
+					(subu | sub)?	4'b0001 :
 					(andi | andw)?	4'b0010 :
 					(ori | orw)?	4'b0011 :
 					(lui)?			4'b0100 :
@@ -149,8 +163,9 @@ module Control(
 	assign WDSelE = mflo ? 2'b11 :
 					mfhi ? 2'b10 :
 					(lw || sw || addu || subu || ori || lui || add || sub || sll || srl || sra || sllv || srlv || srav || andw || orw || xorw || norw || addi || addiu || andi || xori || slt || slti || sltiu || sltu) ? 2'b01 :	// use alu data
-					  2'b00;	// use jump data
+					  2'b00;	// use jump data that generate on D-Stage
 ////////////// Execute End ////////////
+
 
 //////////// Memory Begin /////////////
 	assign WEMem = sw || sh || sb;
@@ -162,4 +177,19 @@ module Control(
 	assign WDSelM = lw || lb || lbu || lh || lhu;	// once load, use the DM data
 //////////// Memory End //////////////
 
+
+////////////// Stall Begin ///////////////
+
+	// D-Use: the RegRead Data is using in the Decode-Stage
+	assign D1Use = jr || jalr || beq || bne || blez || bgtz || bltz || bgez;
+	assign D2Use = beq || bne;
+	
+	
+	// E-Use: the RegRead Data is using in the Exe-Stage
+	assign E1Use = addu || subu || ori || orw || lw || sw;
+	assign E2Use = addu || subu | orw;
+	
+	
+	// M-Use: the RegRead Data is useing in the Mem-Stage
+	assign M2Use = sw || sh || sb;
 endmodule

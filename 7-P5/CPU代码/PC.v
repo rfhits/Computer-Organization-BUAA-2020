@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    10:34:13 11/25/2020 
+// Create Date:    16:21:08 11/17/2020 
 // Design Name: 
-// Module Name:    mips 
+// Module Name:    PC 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,12 +18,25 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module mips(
+`define PC_DEFAULT	32'h0000_3000
+
+module PC(
     input clk,
-    input reset
+    input reset,
+	input en,
+    input [31:0] NPC,
+    output reg [31:0] PC
     );
+	initial begin
+		PC = `PC_DEFAULT;
+	end
 	
-	
-
-
+	always@(posedge clk) begin
+		if(reset) begin
+			PC <= `PC_DEFAULT;
+		end
+		else if (en) begin
+			PC <= NPC;
+		end
+	end
 endmodule

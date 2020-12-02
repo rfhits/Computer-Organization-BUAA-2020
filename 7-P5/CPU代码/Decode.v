@@ -45,7 +45,11 @@ module Decode(
     output [4:0] A3DE,
     output [31:0] WDDE,
 	
-    output [31:0] NPC
+    output [31:0] NPC,
+	
+	// stall signals
+	output D1Use,
+	output D2Use
     );
 	
 	wire [31:0] PCD8 = PCD +8;
@@ -60,7 +64,6 @@ module Decode(
 	wire eq,eqz,ltz;
 	wire branch, JType, JReg;
 	wire sign;
-	wire ALUOp;
 	
 	wire WDSelD;		// WriteData Select
 	
@@ -70,19 +73,24 @@ module Decode(
     .eq(eq), 
     .eqz(eqz), 
     .ltz(ltz), 
-	
-    .ALUOp(ALUOp), 
+
     .sign(sign), 
 	
     .branch(branch), 
     .JType(JType), 
     .JReg(JReg), 
 	
-    .WDSelD(WDSelD), 
-    .A3DE(A3DE)		// output A3DE
+    .WDSelD(WDSelD), // if link-instr, set 1
+    .A3DE(A3DE),	// output A3DE
+	
+	// stall signals
+	.D1Use(D1Use),
+	.D2Use(D2Use)
     );
+	
 	// RegWrite Unit
-	assign WDDE = (WDSelD==1)? PCD8:0;
+	// WriteData DtoE
+	assign WDDE = (WDSelD == 1)? PCD8 : 32'bz;
 			
 	// Ext Unit
 	EXT ext (
@@ -127,4 +135,5 @@ module Decode(
 	
     .PC(PCW)	// the pre-test requires
     );
+	
 endmodule

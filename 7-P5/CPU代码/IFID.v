@@ -19,6 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module IFID(
+
     input clk,
     input en,
     input reset,
@@ -27,9 +28,15 @@ module IFID(
     input [31:0] PCF,
     input [31:0] InstrF,
 	
+	// 1. Decode use it
+	// 2. the Fwd in hzd use it
     output reg [31:0] PCD,
     output reg [31:0] InstrD
     );
+	
+	initial begin
+		InstrD = 0;
+	end
 	always@(posedge clk) begin
 		if (reset) begin
 			PCD = 0;

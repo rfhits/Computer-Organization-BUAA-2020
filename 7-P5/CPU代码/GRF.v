@@ -49,7 +49,7 @@ module GRF(
 			// in the decode-stage, if not write the GRF, A3 will be set to 0, 
 			// so we can "cut" the enable signal
 				RF[A3] = WD;
-				$display("@%h: $%d <= %h", PC, A3, WD);		// the pre-test requires
+				$display("%d@%h: $%d <= %h", $time, PC, A3, WD);		// the pre-test requires
 			end
 		end
 	end

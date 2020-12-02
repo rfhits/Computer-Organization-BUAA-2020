@@ -58,7 +58,7 @@ module Memory(
     .WD(FwdM2), 
 	
     .RD(MRD), 
-    .PC(PC)
+    .PC(PCM)
     );
 	
 	assign WDMW = (WDSelM == 0)? WDM : MRD;

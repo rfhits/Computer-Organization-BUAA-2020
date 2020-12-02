@@ -1,3 +1,6 @@
-.gitignore/Computer_Organization.code-workspace
+.gitignore
+/Computer_Organization.code-workspace
 /6-P4/课下CPU.zip
-Newbie\MIPS\test.asm
+Newbie/MIPS/test.asm
+Assets/in.txt
+Assets/out.txt
