@@ -195,9 +195,15 @@ From FutureXiang in 2018
 
 #### 2020
 
+第一次：  
 bsoal  
 xor  
 swrr（DM写入时，输出要求“字对齐”）
+
+第二次：  
+bszeal  
+xor  
+lah
 
 #### 2019
 
