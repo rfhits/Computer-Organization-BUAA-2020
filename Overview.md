@@ -205,6 +205,8 @@ bszeal
 xor  
 lah
 
+[2020-P4课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/6-P4/%E8%AF%BE%E4%B8%8A/P4%E8%AF%BE%E4%B8%8A%E6%B5%8B%E8%AF%95%E5%9B%9E%E5%BF%86.md)
+
 #### 2019
 
 jalr  
