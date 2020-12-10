@@ -26,7 +26,8 @@ module Fetch(
 	
 	
     output [31:0] InstrF,
-    output [31:0] PCF
+    output [31:0] PCF,
+	output [32*8-1:0] DeInstrF
     );
 	
 	wire[31:0] PC;
@@ -46,9 +47,10 @@ module Fetch(
 	
 	assign PCF = PC;
 	
-DASM instance_name (
-    .pc(PC), 
-    .instr(InstrF), 
-    .reg_name(0)
-    );
+	DASM DeInstr (	// decode the instrution 
+	.pc(PC), 
+	.instr(InstrF), 
+	.reg_name(0),
+	.asm(DeInstrF)
+	);
 endmodule

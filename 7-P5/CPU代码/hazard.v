@@ -89,6 +89,11 @@ module hazard(
 	// it should be forward
 	reg [4:0] A3R;
 	reg [31:0] WDR;
+	initial begin
+		A3R = 0;
+		WDR = 0;
+	end
+	
 	always@(posedge clk) begin
 		if(reset) begin
 			A3R <= 0;
@@ -106,14 +111,14 @@ module hazard(
 	// but the stage havn't caculated it out,
 	// or the 
 	// so the WriteData(WD) is 32'bz
-	assign StallD =	(
+	assign StallD =	((
 					(D1Use && A1D == A3E && A3E != 0 && WDE === 32'bz) ||
 					(D1Use && A1D == A3M && A3M != 0 && WDM === 32'bz && !(A1D == A3E && A3E != 0 && WDE !== 32'bz))
 					)||
 					(
 					(D2Use && A2D == A3E && A3E != 0 && WDE === 32'bz) ||
 					(D2Use && A2D == A3M && A3M != 0 && WDM === 32'bz && !(A2D == A3E && A3E != 0 && WDE !== 32'bz))
-					);
+					))&& !StallE;
 					
 	assign StallE =	(E1Use && A1E == A3M && A3M != 0 && WDM === 32'bz) ||
 					(E2Use && A2E == A3M && A3M != 0 && WDM === 32'bz);

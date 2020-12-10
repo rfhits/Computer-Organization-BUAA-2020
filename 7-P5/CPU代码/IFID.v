@@ -31,7 +31,8 @@ module IFID(
 	// 1. Decode use it
 	// 2. the Fwd in hzd use it
     output reg [31:0] PCD,
-    output reg [31:0] InstrD
+    output reg [31:0] InstrD,
+	output [32*8-1:0] DeInstrD
     );
 	
 	initial begin
@@ -47,4 +48,11 @@ module IFID(
 			InstrD <= InstrF;
 		end
 	end
+	
+	DASM DeInstr (	// decode the instrution 
+		.pc(PCD), 
+		.instr(InstrD), 
+		.reg_name(0),
+		.asm(DeInstrD)
+	);
 endmodule

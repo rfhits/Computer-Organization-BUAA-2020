@@ -37,42 +37,44 @@ module DM(
 	input [31:0] PC		// the pre-test requires
 	
     );
-	reg [31:0] DM[1023:0];
+	// reg [31:0] DM[1023:0];
+	reg [31:0] DM[4095:0];
 	integer i;
 	
 	initial begin 
-		for (i = 0; i < 1024; i = i + 1)
+		for (i = 0; i < 4096; i = i + 1)
 			DM[i] = 0;
 	end
 	
 	
 	always@(posedge clk) begin
 		if(reset == 1) begin
-			for (i = 0; i < 1024; i = i + 1)
+			for (i = 0; i < 4096; i = i + 1)
 				DM[i] = 0;
 		end
 		else if(WE == 1) begin
 			case(width)
 				`WORD : begin
-					DM[addr[11:2]] = WD;
+					// DM[addr[11:2]] = WD;
+					DM[addr[13:2]] = WD;
 					$display("%d@%h: *%h <= %h", $time, PC, addr, WD);		// the pre-test requires
 		
 				end
 				`HALF : begin
 					case(addr[1])
-						0 : DM[addr[11:2]][15:0] = WD[15:0];
-						1 : DM[addr[11:2]][31:16] = WD[15:0];
+						0 : DM[addr[13:2]][15:0] = WD[15:0];
+						1 : DM[addr[13:2]][31:16] = WD[15:0];
 					endcase
-					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[11:2]]);		// the pre-test requires
+					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[13:2]]);		// the pre-test requires
 				end
 				`BYTE : begin
 					case(addr[1:0])
-						0 : DM[addr[11:2]][7:0] = WD[7:0];
-						1 : DM[addr[11:2]][15:8] = WD[7:0];
-						2 : DM[addr[11:2]][23:16] = WD[7:0];
-						3 : DM[addr[11:2]][31:24] = WD[7:0];
+						0 : DM[addr[13:2]][7:0] = WD[7:0];
+						1 : DM[addr[13:2]][15:8] = WD[7:0];
+						2 : DM[addr[13:2]][23:16] = WD[7:0];
+						3 : DM[addr[13:2]][31:24] = WD[7:0];
 					endcase
-					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[11:2]]);		// the pre-test requires
+					$display("%d@%h: *%h <= %h", $time, PC, {addr[31:2],2'b0}, DM[addr[13:2]]);		// the pre-test requires
 				end
 			endcase
 		end
@@ -80,11 +82,11 @@ module DM(
 	
 	always@(*) begin
 		case(width)
-			`WORD : RD = DM[addr[11:2]];
+			`WORD : RD = DM[addr[13:2]];
 			`HALF : begin
 				case(addr[1])
-					0 : RD[15:0] = DM[addr[11:2]][15:0];
-					1 : RD[15:0] = DM[addr[11:2]][31:16];
+					0 : RD[15:0] = DM[addr[13:2]][15:0];
+					1 : RD[15:0] = DM[addr[13:2]][31:16];
 				endcase
 				case(LoadSign)
 					0 : RD[31:16] = 0;
@@ -93,10 +95,10 @@ module DM(
 			end
 			`BYTE : begin
 				case(addr[1:0])
-					0 : RD[7:0] = DM[addr[11:2]][7:0];
-					1 : RD[7:0] = DM[addr[11:2]][15:8];
-					2 : RD[7:0] = DM[addr[11:2]][23:16];
-					3 : RD[7:0] = DM[addr[11:2]][31:24];
+					0 : RD[7:0] = DM[addr[13:2]][7:0];
+					1 : RD[7:0] = DM[addr[13:2]][15:8];
+					2 : RD[7:0] = DM[addr[13:2]][23:16];
+					3 : RD[7:0] = DM[addr[13:2]][31:24];
 				endcase
 				case(LoadSign)
 					0 : RD[31:8] = 0;

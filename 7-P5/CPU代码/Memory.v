@@ -26,6 +26,7 @@ module Memory(
     input [31:0] InstrM,
 	
     input [31:0] WDM,	// Write Data Mem-Stage
+	input [31:0] ResM,
     input [31:0] FwdM2,
 	
     output [31:0] WDMW	// Write Data from Mem-Stage to Write-Stage
@@ -54,7 +55,7 @@ module Memory(
     .width(width), 
     .LoadSign(LoadSign), 
 	
-    .addr(WDM), 
+    .addr(ResM), 
     .WD(FwdM2), 
 	
     .RD(MRD), 

@@ -23,6 +23,10 @@ module EXT(
     input sign,
     output reg [31:0] imm32
     );
+	initial begin
+		imm32 = 0;
+	end
+	
 	always@(*) begin
 		case(sign)		//signed ext or not
 			0 : 

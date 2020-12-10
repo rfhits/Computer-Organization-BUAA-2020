@@ -41,7 +41,6 @@
 `define SUB		6'b100010
 
 `define AND		6'b100100
-
 `define OR		6'b100101
 `define XOR		6'b100110
 `define NOR		6'b100111

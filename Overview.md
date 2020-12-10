@@ -191,6 +191,12 @@ forgotten（三选二）
 **Single Cycle CPU in Verilog, supporting 10+ MIPS instructions.**  
 From FutureXiang in 2018  
 
+### P4课下
+
+用Verilog实现单周期32位CPU，支持MIPS指令集中的  
+{addu, subu, lw, sw, beq, lui, ori, nop} 指令  
+[2020-P4课下解析](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/6-P4/P4%E8%AF%BE%E4%B8%8B%E8%A7%A3%E6%9E%90.md)
+
 ### P4课上
 
 #### 2020
@@ -215,14 +221,20 @@ lwl
 
 ## P5
 
-5-Stage Pipeline CPU in Verilog, supporting 10+ MIPS instructions(2018)  
+5-Stage Pipeline CPU in Verilog, supporting 10+ MIPS instructions(2018)
+
+### P5课上
+
+#### 2019
+
 bgezalr  
 clz  
-lwpl  
+lwpl
 
 ## P6
 
- 5-Stage Pipeline CPU in Verilog, handling with Exception and Interrupt given by Timers, supporting 10+ MIPS instructions(2018)  
+5-Stage Pipeline CPU in Verilog, handling with Exception and Interrupt given by Timers, supporting 10+ MIPS instructions(2018)
+
 bgezalc  
 madd  
 lwso  
@@ -238,8 +250,8 @@ To synthesis and load P7 on a FPGA.(2018)
 
 ## Thanks
 
- 1. 感谢wzk、Wander等学长对题目的回忆
+1. 感谢wzk、Wander等学长对题目的回忆
 
- 2. 在此谢谢我的助教ssh、fdh以及所有助教，你们辛苦了
+2. 在此谢谢我的助教ssh、fdh以及所有助教，你们辛苦了
 
- 3. 感谢所有在互联网上分享经验的贡献者，sharing is caring.
+3. 感谢所有在互联网上分享经验的贡献者，sharing is caring.

@@ -42,8 +42,20 @@ module IDEX(
     output reg [31:0] imm32E,
 	
     output reg [4:0] A3E,
-    output reg [31:0] WDE
+    output reg [31:0] WDE,
+	
+	output [32*8-1:0] DeInstrE
     );
+	
+	initial begin
+		PCE <= 0;
+		InstrE <= 0;
+		RD1E <= 0;
+		RD2E <= 0;
+		imm32E <= 0;
+		A3E <= 0;
+		WDE <= 0;
+	end
 	
 	always@(posedge clk) begin
 		if(reset || flush) begin
@@ -65,4 +77,11 @@ module IDEX(
 			WDE <= WDD;
 		end
 	end
+	
+	DASM DeInstr (	// decode the instrution 
+		.pc(PCE), 
+		.instr(InstrE), 
+		.reg_name(0),
+		.asm(DeInstrE)
+	);
 endmodule

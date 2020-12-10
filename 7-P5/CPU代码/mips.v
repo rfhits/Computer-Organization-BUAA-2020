@@ -38,6 +38,7 @@ module mips(
 ////// WriteData and Addr Signals //////
 	wire [31:0] RD1DE, RD2DE, RD1E, RD2E, RD2EM, RD2M;
 	wire [4:0] A3D, A3E, A3M, A3W; 
+	wire [31:0] ResEM, ResM;
 	wire [31:0] WDDE, WDE, WDEM, WDM, WDMW, WDW;
 
 
@@ -147,6 +148,7 @@ module mips(
 	
 	// output
 	.WDEM(WDEM), 
+	.ResEM(ResEM),
 	.RD2EM(RD2EM), 
 	.E1Use(E1Use), 
 	.E2Use(E2Use)
@@ -162,12 +164,14 @@ module mips(
     .InstrE(InstrE), 
     .A3E(A3E), 
     .WDE(WDEM), 
+	.ResE(ResEM),
     .RD2E(RD2EM), 
 	
     .PCM(PCM), 
     .InstrM(InstrM), 
     .A3M(A3M), 
     .WDM(WDM), 
+	.ResM(ResM),
     .RD2M(RD2M)
     );
 
@@ -177,6 +181,7 @@ module mips(
     .reset(reset), 
     .PCM(PCM), 
     .InstrM(InstrM), 
+	.ResM(ResM),
     .WDM(WDM), 
 	
     .FwdM2(FwdM2), 
@@ -190,10 +195,12 @@ module mips(
     .clk(clk), 
     .reset(reset), 
     .PCM(PCM), 
+	.InstrM(InstrM),
     .A3M(A3M), 
     .WDM(WDMW), 
 	
     .PCW(PCW), 
+	.InstrW(InstrW),
     .A3W(A3W), 
     .WDW(WDW)
     );

@@ -21,9 +21,12 @@
 `include "macros.v"
 module Control(
     input [31:0] instr,
+	
+	// the cmp in Decode-Stage will tell u
 	input eq,
 	input eqz,
 	input ltz,
+	
 	// Decode-Stage
     output sign,
 	
@@ -63,7 +66,9 @@ module Control(
 	assign rt = instr[`rt];
 	
 	wire addu,subu,ori,lw,sw,beq,lui,jal,nop;
+	wire addi;
 	
+/// P5 decode
 	assign addu = (op == `R)&(funct == `ADDU);
 	assign subu = (op == `R)&(funct == `SUBU);
 	assign ori = (op == `ORI);
@@ -79,10 +84,56 @@ module Control(
 	assign jr = (op == `R)&(funct == `JR);
 	assign jalr = (op == `R)&(funct == `JALR);
 	
+/// P6 decode
 	assign	nop= (op == `R)&(funct == 0),
+	
+	/////// R type op and funct
 			add = (op == `R) && (funct == `ADD),
 			sub = (op == `R) && (funct == `SUB),
 			
+			// Bit operation
+			andw = (op == `R) && (funct == `AND),	// "and" is key word
+			orw = (op == `R) && (funct == `OR),		// "or" is key word
+			xorw = (op == `R) && (funct == `XOR),
+			norw = (op == `R) && (funct == `NOR),
+			
+			// mult and div
+			mult = (op == `R) && (funct == `MULT),
+			multu = (op == `R) && (funct == `MULTU),
+			div = (op == `R) && (funct == `DIV),
+			divu = (op == `R) && (funct == `DIVU),
+			
+			// shift operation
+			sll = (op == `R) && (funct == `SLL),
+			srl = (op == `R) && (funct == `SRL),
+			sra = (op == `R) && (funct == `SRA),
+			sllv = (op == `R) && (funct == `SLLV),
+			srlv = (op == `R) && (funct == `SRLV),
+			srav = (op == `R) && (funct == `SRAV),
+			
+			// set less than(signed or unsigned)
+			slt = (op == `R) && (funct == `SLT),
+			sltu = (op == `R) && (funct == `SLTU),
+			
+			// HI/LO
+			mfhi = (op == `R) && (funct == `MFHI),
+			mflo = (op == `R) && (funct == `MFLO),
+			mthi = (op == `R) && (funct == `MTHI),
+			mtlo = (op == `R) && (funct == `MTLO),
+			
+/////// I type only the op
+			
+			addi = (op == `ADDI),
+			addiu = (op == `ADDIU),
+			
+			andi = (op == `ANDI),
+			xori = (op == `XORI),
+			
+			slti = (op == `SLTI),
+			sltiu = (op == `SLTIU),
+
+
+////// MEM only op
 			lb = (op == `LB),
 			lbu = (op == `LBU),
 			lh = (op == `LH),
@@ -91,47 +142,23 @@ module Control(
 			sh = (op == `SH),
 			
 			
-			mult = (op == `R) && (funct == `MULT),
-			multu = (op == `R) && (funct == `MULTU),
-			div = (op == `R) && (funct == `DIV),
-			divu = (op == `R) && (funct == `DIVU),
-			sll = (op == `R) && (funct == `SLL),
-			srl = (op == `R) && (funct == `SRL),
-			sra = (op == `R) && (funct == `SRA),
-			sllv = (op == `R) && (funct == `SLLV),
-			srlv = (op == `R) && (funct == `SRLV),
-			srav = (op == `R) && (funct == `SRAV),
-			andw = (op == `R) && (funct == `AND),	// "and" is key word
-			orw = (op == `R) && (funct == `OR),		// "or" is key word
-			xorw = (op == `R) && (funct == `XOR),
-			norw = (op == `R) && (funct == `NOR),
-			addi = (op == `ADDI),
-			addiu = (op == `ADDIU),
-			andi = (op == `ANDI),
-			xori = (op == `XORI),
-			slt = (op == `R) && (funct == `SLT),
-			slti = (op == `SLTI),
-			sltiu = (op == `SLTIU),
-			sltu = (op == `R) && (funct == `SLTU),
+			
+////// Branch only op	
 			bne = (op == `BNE),
 			blez = (op == `BLEZ),
 			bgtz = (op == `BGTZ),
 			bltz = (op == `BLTZ) && (rt == 0),
-			bgez = (op == `BGEZ) && (rt == 5'b00001),
-			mfhi = (op == `R) && (funct == `MFHI),
-			mflo = (op == `R) && (funct == `MFLO),
-			mthi = (op == `R) && (funct == `MTHI),
-			mtlo = (op == `R) && (funct == `MTLO);
+			bgez = (op == `BGEZ) && (rt == 5'b00001);
 			
 	
 
 ///////////// Decode /////////////////////////
 
 	// sign
-	assign sign = lw|sw|beq;
+	assign sign = addi | lw | sw | beq;
 	
 	// branch
-	assign branch =  beq & eq;
+	assign branch =  (beq & eq);
 	// JType
 	assign JType = j || jal;
 	// JReg
@@ -139,11 +166,12 @@ module Control(
 	
 	// WDSelD
 	// if link, set 1
+	// wrtie data would be generated right now
 	assign WDSelD = jal | jalr;
 	
-	// A3DE
+	// A3DE where gonna write, rt/rd
 	assign A3DE =	(jal)? 5'd31:
-					(lui | ori| lw )? instr[`rt]:		// I-Type
+					(lui | ori| lw | addi)? instr[`rt]:		// I-Type
 					(addu | subu | jalr)? instr[`rd]:
 					0;
 ////////// Decode End /////////////
@@ -151,7 +179,7 @@ module Control(
 //////////// Execute begin ///////////
 
 	// ALUOp
-	assign ALUOp =	(addu || add)?  4'b0000 :
+	assign ALUOp =	(addu | addi | add)?  4'b0000 :
 					(subu | sub)?	4'b0001 :
 					(andi | andw)?	4'b0010 :
 					(ori | orw)?	4'b0011 :
@@ -159,11 +187,11 @@ module Control(
 					0;
 	// ALUSel
 	assign ALUASel = sll || srl || sra;
-	assign ALUBSel = ori || lw || sw || lui;
+	assign ALUBSel = ori || lw || sw || lui || addi;	// I-Type, Store/Load
 	assign WDSelE = mflo ? 2'b11 :
 					mfhi ? 2'b10 :
-					(lw || sw || addu || subu || ori || lui || add || sub || sll || srl || sra || sllv || srlv || srav || andw || orw || xorw || norw || addi || addiu || andi || xori || slt || slti || sltiu || sltu) ? 2'b01 :	// use alu data
-					  2'b00;	// use jump data that generate on D-Stage
+					(addu || subu || ori || lui || add || sub || sll || srl || sra || sllv || srlv || srav || andw || orw || xorw || norw || addi || addiu || andi || xori || slt || slti || sltiu || sltu) ? 2'b01 :	// use alu data
+					  2'b00;	// default use jump data that generate on D-Stage
 ////////////// Execute End ////////////
 
 
@@ -171,7 +199,7 @@ module Control(
 	assign WEMem = sw || sh || sb;
 	assign width =	(sb || lb || lbu) ? 2'b10 :
 					(sh || lh || lhu) ? 2'b01 :
-					2'b00;	// 32-bits word default
+					2'b00;	// default 32-bits word
 	assign LoadSign = lb || lh;		// lb and lh default LoadSign
 	
 	assign WDSelM = lw || lb || lbu || lh || lhu;	// once load, use the DM data
@@ -181,13 +209,15 @@ module Control(
 ////////////// Stall Begin ///////////////
 
 	// D-Use: the RegRead Data is using in the Decode-Stage
+	// D-Use will tell the Forwaed, I need the GRF Data right now!!
 	assign D1Use = jr || jalr || beq || bne || blez || bgtz || bltz || bgez;
 	assign D2Use = beq || bne;
 	
 	
 	// E-Use: the RegRead Data is using in the Exe-Stage
-	assign E1Use = addu || subu || ori || orw || lw || sw;
-	assign E2Use = addu || subu | orw;
+	// E-Use will tell the Forwaed/Stall, I need the GRF Data right now!!
+	assign E1Use = addu | subu | ori | addi | orw | lw | sw;
+	assign E2Use = addu | subu | orw;
 	
 	
 	// M-Use: the RegRead Data is useing in the Mem-Stage

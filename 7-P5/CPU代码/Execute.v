@@ -30,6 +30,7 @@ module Execute(
     input [31:0] FwdE2,
 	
     output [31:0] WDEM,
+	output [31:0] ResEM,
     output [31:0] RD2EM,
 	
 	// stall sigals
@@ -64,7 +65,7 @@ module Execute(
     );
 	assign WDEM =	(WDSelE == 2'b00)? WDE :
 					(WDSelE == 2'b01)? res :
-					0;// waiting for P6 to add the HI and LO
-					
+					WDE;// waiting for P6 to add the HI and LO
+	assign ResEM = res;
 	assign RD2EM = FwdE2;
 endmodule
