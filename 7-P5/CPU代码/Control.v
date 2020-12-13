@@ -121,7 +121,7 @@ module Control(
 			mthi = (op == `R) && (funct == `MTHI),
 			mtlo = (op == `R) && (funct == `MTLO),
 			
-/////// I type only the op
+	/////// I type only the op
 			
 			addi = (op == `ADDI),
 			addiu = (op == `ADDIU),
@@ -133,7 +133,7 @@ module Control(
 			sltiu = (op == `SLTIU),
 
 
-////// MEM only op
+	////// MEM only op
 			lb = (op == `LB),
 			lbu = (op == `LBU),
 			lh = (op == `LH),
@@ -143,7 +143,7 @@ module Control(
 			
 			
 			
-////// Branch only op	
+	////// Branch only op	
 			bne = (op == `BNE),
 			blez = (op == `BLEZ),
 			bgtz = (op == `BGTZ),
@@ -172,8 +172,8 @@ module Control(
 	// A3DE where gonna write, rt/rd
 	assign A3DE =	(jal)? 5'd31:
 					(lui | ori| lw | addi)? instr[`rt]:		// I-Type
-					(addu | subu | jalr)? instr[`rd]:
-					0;
+					(addu | subu | jalr)? instr[`rd]:	// write to rd
+					0;	// if not gonna write, set to 0
 ////////// Decode End /////////////
 
 //////////// Execute begin ///////////
