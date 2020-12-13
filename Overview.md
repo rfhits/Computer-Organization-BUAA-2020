@@ -203,28 +203,42 @@ From FutureXiang in 2018
 #### 2020
 
 第一次：  
-bsoal  
-xor  
-swrr（DM写入时，输出要求“字对齐”）
+bsoal（三选二）  
+xor（三选二）  
+swrr（三选二）（DM写入时，输出要求“字对齐”）
 
 第二次：  
-bszeal  
-xor  
-lah
+bszeal（三选二）  
+xor（三选二）  
+lah（三选二）
 
-[2020-P4课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/6-P4/%E8%AF%BE%E4%B8%8A/P4%E8%AF%BE%E4%B8%8A%E6%B5%8B%E8%AF%95%E5%9B%9E%E5%BF%86.md)
+[2020-P4第二次课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/6-P4/%E8%AF%BE%E4%B8%8A/P4%E8%AF%BE%E4%B8%8A%E6%B5%8B%E8%AF%95%E5%9B%9E%E5%BF%86.md)
 
 #### 2019
 
-jalr  
-rotrv  
-lwl
+jalr（三选二）  
+rotrv（三选二）  
+lwl（三选二）
 
 ## P5
 
 5-Stage Pipeline CPU in Verilog, supporting 10+ MIPS instructions(2018)
 
 ### P5课上
+
+#### 2020
+
+第一次：  
+cco（三选二）  
+bgezall（三选二）  
+lwso（三选二）  
+[2020-P5第一次课上测评回忆](https://roife.github.io/2020/11/23/buaa-co-lab-p5/#上机总结-1)
+
+第二次：  
+cmco（三选二）  
+blezalc（三选二）  
+lrm（三选二）  
+[2020-P5第二次课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/7-P5/P5课上测评回忆.md)
 
 #### 2019
 
