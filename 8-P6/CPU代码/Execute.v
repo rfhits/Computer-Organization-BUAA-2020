@@ -25,10 +25,13 @@ module Execute(
     input [31:0] InstrE,
     input [31:0] imm32E,
 	
+	input [4:0] A3E,
     input [31:0] WDE,
     input [31:0] FwdE1,
     input [31:0] FwdE2,
 	
+	
+	output [4:0] A3EM,
     output [31:0] WDEM,
 	output [31:0] ResEM,
     output [31:0] RD2EM,
@@ -94,7 +97,9 @@ module Execute(
     .LO(LO),
 	.busy(busy) 	// output to hzd
     );
-
+	
+	assign A3EM = A3E;
+	
 	assign WDEM =	(WDSelE == 2'b00)?	WDE :
 					(WDSelE == 2'b01)?	res :
 					(WDSelE == 2'b10)?	HI :

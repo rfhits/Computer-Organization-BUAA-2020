@@ -25,10 +25,13 @@ module Memory(
     input [31:0] PCM,
     input [31:0] InstrM,
 	
+	input [4:0] A3M,
     input [31:0] WDM,	// Write Data Mem-Stage
 	input [31:0] ResM,
     input [31:0] FwdM2,
 	
+	
+	output [4:0] A3MW,
     output [31:0] WDMW	// Write Data from Mem-Stage to Write-Stage
     );
 	wire WEMem;
@@ -62,6 +65,7 @@ module Memory(
     .PC(PCM)
     );
 	
+	assign A3MW = A3M;	// u may add a mux here for A3M === 5'bz
 	assign WDMW = (WDSelM == 0)? WDM : MRD;
 
 

@@ -180,6 +180,8 @@ module Control(
 	assign WDSelD = jal | jalr;	// PC + 8 would be write into GRF
 	
 	// A3DE where gonna write, rt/rd
+	// can be 5'bz sometimes, instructions like "lrm"/ "lwpl" ..., 
+	// which u need to add in E-Stage and M-Stage, alse u need to add in the hzd
 	assign A3DE =	(jal)? 5'd31:	// write to 31
 	
 					(lui | andi | ori| xori | 
@@ -193,6 +195,8 @@ module Control(
 					slt | sltu |
 					mfhi | mflo)? instr[`rd]:
 					0;
+					
+		
 	assign MD = mult || multu || div || divu || mfhi || mflo || mthi || mtlo;
 ////////// Decode End /////////////
 

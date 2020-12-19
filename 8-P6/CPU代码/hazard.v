@@ -128,9 +128,12 @@ module hazard(
 					)||
 					((start || busy) && MD)
 					)&& !StallE;	// priority of E is higher than priority of D
+					// || (A3E === 5'bz)
 					
+				
 	assign StallE =	(E1Use && A1E == A3M && A3M != 0 && WDM === 32'bz) ||
 					(E2Use && A2E == A3M && A3M != 0 && WDM === 32'bz);
+					// ||(A3M === 5'bz)
 					
 	// StallD means Decode-Stage needs the data
 	// instr should be freezed on D-Stage and the stages before it, 
