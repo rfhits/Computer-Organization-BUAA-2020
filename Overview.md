@@ -250,6 +250,26 @@ lwpl
 
 5-Stage Pipeline CPU in Verilog, handling with Exception and Interrupt given by Timers, supporting 10+ MIPS instructions(2018)
 
+### P6课上
+
+#### 2020年
+
+**第一次**
+
+blezalc（必做）  
+multc（二选一）  
+lwld（二选一）  
+[2020-P6第一次课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/8-P6/P6%E5%87%86%E5%A4%87.md)
+
+**第二次**
+
+bgezlar（必做）  
+msub（二选一）  
+lhs（二选一）  
+[2020-P6第二次课上测评回忆](https://github.com/rfhits/Computer-Organization-BUAA-2020/blob/main/8-P6/2020-P6第二次课上测评回忆)
+
+#### 2019年
+
 bgezalc  
 madd  
 lwso  
@@ -267,6 +287,6 @@ To synthesis and load P7 on a FPGA.(2018)
 
 1. 感谢wzk、Wander等学长对题目的回忆
 
-2. 在此谢谢我的助教ssh、fdh以及所有助教，你们辛苦了
+2. 在此谢谢我的助教ssh、fdh、kxh以及所有助教，你们辛苦了
 
 3. 感谢所有在互联网上分享经验的贡献者，sharing is caring.
