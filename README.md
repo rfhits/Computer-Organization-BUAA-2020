@@ -1,18 +1,17 @@
 # Computer-Organization-BUAA-2020
 
-关键词：北航6系 CO BUAA CO 2020  
-Email: wysj0117@gmail.com  
+关键词：北航6系 BUAA CO Computer Organization 2020
 
 ## 写在前面
 
 球球大家不要fork。如果fork了，就是要对我这个仓库做更改了，这和fork的功能相违背。  
 仓库可以直接下载到本地，这才是最爽的。
 
-更何况还有discuss功能，实在不行发issue吧，，真没必要fork。。
+更何况还有discuss功能，实在不行发issue吧，真没必要fork。
 
 ## 命名说明
 
-以“2019-wzk1015的代码”为例，“2019”表示刚开始学习计组的时间，这些代码都在GitHub上，我将它们收集起来  
+以“2018级-wzk1015的代码”为例，“2018级”表示入学年份为2018，这些代码都在GitHub上，我将它们收集起来  
 真诚地希望每个人都能把自己的仓库规范化、通俗化，而不是上传了code就直接走了。
 
 ## 规范化仓库
@@ -38,9 +37,11 @@ MessUp文件夹下，记录的是犯过的错误。
 
 ## 获取帮助
 
-[2019-MondayCha的代码](https://github.com/MondayCha/BUAA-CO-2019)  
-[2019-PotassiumWings的代码](https://github.com/PotassiumWings/BUAA-CO-2019)  
-[2019-wzk1015的代码](https://github.com/wzk1015/Computer-Organization)  
-[2018-FutureXiang的代码](https://github.com/FutureXiang/ComputerOrganization-BUAA)  
-[2018-Wancong的代码](https://github.com/wancong3/BUAA_Computer_Organization)  
-[2018-aptx1231的代码](https://github.com/aptx1231/BUAA_CO)
+[2019级-Roife的笔记](https://roife.github.io/)
+[2018级-Refkxh的代码](https://github.com/refkxh/BUAA_CO_2019Autumn)
+[2018级-MondayCha的代码](https://github.com/MondayCha/BUAA-CO-2019)  
+[2018级-PotassiumWings的代码](https://github.com/PotassiumWings/BUAA-CO-2019)  
+[2018级-wzk1015的代码](https://github.com/wzk1015/Computer-Organization)  
+[2017级-FutureXiang的代码](https://github.com/FutureXiang/ComputerOrganization-BUAA)  
+[2017级-Wancong的代码](https://github.com/wancong3/BUAA_Computer_Organization)  
+[2017级-aptx1231的代码](https://github.com/aptx1231/BUAA_CO)
