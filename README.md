@@ -37,8 +37,9 @@ MessUp文件夹下，记录的是犯过的错误。
 
 ## 获取帮助
 
-[2019级-Roife的笔记](https://roife.github.io/)
-[2018级-Refkxh的代码](https://github.com/refkxh/BUAA_CO_2019Autumn)
+[2019级-Roife的笔记](https://roife.github.io/)  
+[2019级-Snake52996的代码-P6和P7在tags里](https://github.com/Snake52996/Buaa-CO-2020Autumn)  
+[2018级-Refkxh的代码](https://github.com/refkxh/BUAA_CO_2019Autumn)  
 [2018级-MondayCha的代码](https://github.com/MondayCha/BUAA-CO-2019)  
 [2018级-PotassiumWings的代码](https://github.com/PotassiumWings/BUAA-CO-2019)  
 [2018级-wzk1015的代码](https://github.com/wzk1015/Computer-Organization)  
