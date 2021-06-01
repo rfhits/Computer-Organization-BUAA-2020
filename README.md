@@ -7,7 +7,7 @@
 球球大家不要fork。如果fork了，就是要对我这个仓库做更改了，这和fork的功能相违背。  
 仓库可以直接下载到本地，这才是最爽的。
 
-更何况还有discuss功能，实在不行发issue吧，真没必要fork。
+北航操作系统仓库见[此](https://github.com/rfhits/Operating-System-BUAA-2021)。
 
 ## 命名说明
 
