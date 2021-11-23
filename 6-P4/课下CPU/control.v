@@ -51,7 +51,7 @@ module control(
 	assign beq = (op == 6'b000100);
 	
 	assign jal = (op == 6'b000011);
-	assign j = (op == 6'h000010);
+	assign j = (op == 6'b000010);
 	
 	assign jr = (op == 6'b000000)&(func == 6'b001000);
 	assign jalr = (op == 6'b000000)&(func == 6'b001001);
